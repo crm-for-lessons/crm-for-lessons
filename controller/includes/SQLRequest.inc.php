@@ -1,9 +1,9 @@
 <?php
 	interface iSQLRequest //запросы к БД
 	{
-		public function set_fetch_assoc($bool); //true == assoc; false == row - смена типа получаемых данных
+		public function set_fetch_assoc(bool $bool); //true == assoc; false == row - смена типа получаемых данных
 		public function send($query); //отправка запроса без ответа
-		public function get_data_as_array($query); //отправка запроса с ответом
+		public function get_data_as_array($query) : array; //отправка запроса с ответом
 	}
 
 	class SQLRequest implements iSQLRequest
@@ -30,14 +30,12 @@
 			return $this->mysqli->query($query);
 		}
 
-		public function get_data_as_array($query) {
+		public function get_data_as_array($query) : array {
 			$query_result = $this->send($query);
 			return $this->convert_result_to_array($query_result);
 		}
 
-		public function set_fetch_assoc($bool) {
-			if (gettype($bool) !== 'boolean')
-				throw new Error('set_fetch_assoc :: invalid input parameter type!');
+		public function set_fetch_assoc(bool $bool) {
 			$this->fetch_function = ($bool) ? 'fetch_assoc' : 'fetch_row';
 		}
 
