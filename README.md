@@ -37,7 +37,7 @@ Operation->OperationAddLessons->OperationDeleteLessons
 Command->CommandAddLessons
 Command->CommandDeleteLessons
 Примеры использования команд:
-
+```php
     <?php
         $user_command = new UserCommand();
 		/*
@@ -68,7 +68,7 @@ Command->CommandDeleteLessons
 		*/
 		$user_command->redo();
     ?>
-
+```
 Так же стоит добавить, что данные команд храняться в БД, а так же реализована проверка на пересечение уроков (чтобы исключить возможности накладки уроков после операции отмены и возврата)
 #### Всякое вспомогательное
 - class SQLRequest - для быстрых запросов в БД
