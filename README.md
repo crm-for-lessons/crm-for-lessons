@@ -19,7 +19,7 @@ Tasks of this CRM system:
 
 Инструкция по установке будет позже.
 
-#change-log
+##change-log
 
 ###06.08.2019
 
@@ -54,24 +54,19 @@ Command->CommandDeleteLessons
 			];
 		$data_lessons[0] = $lesson;
 		$command = 'CommandAddLessons';
-		
 		/*
 		* Вызов выполнения команды
 		*/
 		$user_command->perform(new $command(), $data_lessons);
-		
 		/*
 		* Чтобы отменить:
 		*/
 		$user_command->undo();
-		
 		/*
 		* Чтобы вернуть отмену
 		*/
 		$user_command->redo();
-		
     ?>
-    
 Так же стоит добавить, что данные команд храняться в БД, а так же реализована проверка на пересечение уроков (чтобы исключить возможности накладки уроков после операции отмены и возврата)
 #### Всякое вспомогательное
 - class SQLRequest - для быстрых запросов в БД
