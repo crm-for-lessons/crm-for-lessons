@@ -36,6 +36,7 @@ Tasks of this CRM system:
 Operation->OperationAddLessons->OperationDeleteLessons
 Command->CommandAddLessons
 Command->CommandDeleteLessons
+---
 Примеры использования команд:
 ```php
     <?php
